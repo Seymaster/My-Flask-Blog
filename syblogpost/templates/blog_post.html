@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="jumbotron" style="margin-top: 51px;">
+        <div style="margin-left: 10px;">    
+            <h1>{{ post.title }}</h1>
+            <p>{{ post.text }}</p>
+            <h5>Posted by {{ post.author.username }}</h5>
+            <h6>Published by {{ post.date.strftime('%D,%b,%Y') }}</h6>
+            
+           
+        {% if post.author == current_user %}
+
+            <button class="btn btn-default btn-sm"><a href="{{ url_for('blog.update',blog_post_id = post.id )}}">Update</a></button>
+            <form action="{{ url_for('blog.delete',blog_post_id = post.id) }}" method="POST">
+                <input class="btn btn-default btn-sm" type="submit" value="Delete">   
+            </form>
+        {% endif %}
+        </div> 
+    </div>
+
+		
+
+{% endblock %}

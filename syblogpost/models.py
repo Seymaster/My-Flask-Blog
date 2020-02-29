@@ -36,6 +36,7 @@ class Blogpost(db.Model):
     date    = db.Column(db.DateTime,nullable = False,default = datetime.utcnow)
     title   = db.Column(db.String(140),nullable=False)
     text    = db.Column(db.Text, nullable = False)
+    comments = db.relationship('Comment', backref='article',lazy=True)
 
     def __init__(self,title,text,user_id):
         self.title   = title
@@ -44,5 +45,18 @@ class Blogpost(db.Model):
 
     def __repr__(self):
         return f"POST ID :{self.id} --- {self.date}-- {self.title}"
+
+class Comment(db.Model):
+    id   = db.Column(db.Integer,primary_key = True)
+    body = db.Column(db.Text,nullable = False)
+    timestamp = db.Column(db.DateTime,nullable=False,default=datetime.utcnow())
+    blogpost_id = db.Column(db.Integer,db.ForeignKey('blogpost.id'),nullable=False)
+
+    def __init__(self,body,blogpost_id):
+        self.body = body
+        self.blogpost_id = blogpost_id
+
+    def __repr__(self):
+        return f"comment :{self.id}"
 
 db.create_all()

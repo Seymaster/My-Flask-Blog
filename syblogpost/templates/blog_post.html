@@ -6,7 +6,11 @@
             <p>{{ post.text }}</p>
             <h5>Posted by {{ post.author.username }}</h5>
             <h6>Published by {{ post.date.strftime('%D,%b,%Y') }}</h6>
-            
+    
+            <a href="{{ url_for('comm.comment' )}}">Comment</a>
+            <!-- <a href="#">Comment</a> -->
+            <!-- <a href="#">Like</a>
+            <a href="#">Share</a>            -->
            
         {% if post.author == current_user %}
 

@@ -26,10 +26,12 @@ from syblogpost.core.views import core
 from syblogpost.users.views import users
 from syblogpost.error_handler.views import error_pages
 from syblogpost.blogpost.views import blog
+from syblogpost.comment.views import comm
 app.register_blueprint(blog)
 app.register_blueprint(core)
 app.register_blueprint(users)
 app.register_blueprint(error_pages)
+app.register_blueprint(comm)
 
 #templates requirement 
 app.config['CSRF_ENABLED']

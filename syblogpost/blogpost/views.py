@@ -60,3 +60,4 @@ def delete(blog_post_id):
     db.session.commit()
     flash('Blog post deleted')
     return redirect(url_for('core.index',blog_post_id = blog_post_id))
+

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="jumbotron" style="margin-top: 51px;">
+    <div style="margin-left: 10px;">
+<form action="{{ url_for('comm.comment')}}" method="POST">
+    {{ form.hidden_tag() }} 
+
+    {{ form.body.label }}<br>
+    {{ form.body }}<br>
+    {{ form.submit() }}
+</form>
+    </div>
+</div>
+
+{% endblock %}

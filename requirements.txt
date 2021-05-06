@@ -12,7 +12,7 @@ decorator==4.4.2
 falcon==2.0.0
 Flask==1.1.1
 Flask-Compress==1.4.0
-Flask-Cors==3.0.8
+Flask-Cors==3.0.9
 Flask-Dance==3.0.0
 Flask-Filter==0.1.0.dev3
 Flask-JWT==0.3.2
